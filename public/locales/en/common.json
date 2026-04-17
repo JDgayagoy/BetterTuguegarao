@@ -49,6 +49,7 @@
     "copyright": "© 2025 BetterGov. All content is public domain unless otherwise specified."
   },
   "navbar": {
+    "home": "Home",
     "government": "Government",
     "services": "Services",
     "hotlines": "Hotlines",

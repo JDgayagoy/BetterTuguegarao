@@ -18,7 +18,7 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className="relative overflow-hidden rounded-3xl h-full bg-gradient-to-br from-primary-500 via-primary-600 to-accent-500 text-white p-6 shadow-lg group">
+    <div className="relative overflow-hidden rounded-2xl h-full bg-gradient-to-br from-primary-500 via-primary-600 to-accent-500 text-white p-6 shadow-lg group">
       {/* Decorative sun element in background */}
       <div className="absolute top-10 right-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
         <Sun size={200} />

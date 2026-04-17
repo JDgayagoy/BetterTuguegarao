@@ -1,0 +1,64 @@
+affiliations:
+  - label: "Kingdom of Spain"
+    period: "1604–1899"
+  - label: "United States of America"
+    period: "1899–1941"
+  - label: "Empire of Japan"
+    period: "1941–1945"
+  - label: "Philippines"
+    period: "1946–present"
+
+timeline:
+  - year: "1604"
+    title: "Spanish Colonial Era & Foundation"
+    content: |
+      Tuguegarao was founded on May 9, 1604, as a "mission-pueblo" with the new vicar Fray Tomas Villa, O.P. initiating the construction of a temporary church housing Sts. Peter and Paul as patron saints.
+    details: |
+      In the 1720s, Father Antonio Lobato, O.P. developed a layout of street network together with the construction of the cathedral. In 1839, the provincial capital was transferred to Tuguegarao from Lal-lo as the Cagayan-Manila road opened which spurred socio-economic progress.
+
+  - year: "1899"
+    title: "The American Era"
+    content: |
+      The town was occupied by American troops on December 12, 1899. Drastic improvements were discerned over the course of provincial administrations.
+    details: |
+      The first Provincial Capitol was completed in 1909, a town hall and public market were built, the provincial high school—Cagayan High School—was founded in a former private residence, and the Cagayan Valley College of Arts & Trades was founded by American educator Claude Andrews.
+
+  - year: "1941"
+    title: "Japanese Occupation & WWII"
+    content: |
+      During World War II, the city and its airfield was bombed at the opening of the Pacific War on December 8, 1941. The city fell to the Japanese Imperial Army on December 12.
+    details: |
+      Following an escalation of fighting during the closing months of the war, the Japanese fled to the barrio of Capatan. Tuguegarao was liberated by Allied forces on June 25, 1945.
+
+  - year: "1959"
+    title: "Postwar Development"
+    content: |
+      Sitio Capatan was elevated into a barrio (or barangay) of Tuguegarao on April 3, 1959, by Republic Act No. 2107.
+
+  - year: "1972"
+    title: "Martial Law Era"
+    content: |
+      Following the declaration of Martial Law in 1972, Tuguegarao became a focal point for provincial administration and social movements.
+    details: |
+      In Tuguegarao, Camp Marcelo Adduru became the province's main detention center for "political detainees." Figures like Romeo G. Crismo, a teacher who criticized the 1973 constitutional plebiscite, are remembered for their resistance during this era.
+
+  - year: "1975"
+    title: "Designation as Regional Capital"
+    content: |
+      Tuguegarao was declared the regional center of Cagayan Valley (Region II) due to its geographic center and adequate facilities.
+    details: |
+      The designation was made through the influence of Juan Ponce Enrile. Multistory buildings were constructed in the poblacion, greatly changing Tuguegarao's skyline in the 1980s and 1990s.
+
+  - year: "1990"
+    title: "The Hotel Delfino Siege"
+    content: |
+      On March 4, 1990, the city witnessed a significant standoff involving former Governor Rodolfo Aguinaldo and government forces.
+    details: |
+      The siege at Hotel Delfino resulted in a tense standoff and the tragic death of Brigadier General Oscar Florendo. Nearly 1,000 government troops were eventually deployed to dislodge Aguinaldo's private army.
+
+  - year: "1999"
+    title: "Cityhood"
+    content: |
+      Tuguegarao was officially converted into a component city on December 18, 1999, through Republic Act No. 8755.
+    details: |
+      The conversion was finalized after a majority of residents voted in favor of cityhood. This transition included a moratorium on real property tax increases to ease the economic transition for residents.
