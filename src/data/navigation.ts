@@ -14,6 +14,10 @@ interface Category {
 
 export const mainNavigation: NavigationItem[] = [
   {
+    label: 'Home',
+    href: '/',
+  },
+  {
     label: 'Services',
     href: '/services',
     children: (servicesData.categories as Category[]).map(category => ({
@@ -24,6 +28,52 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: 'Government',
     href: '/government/departments',
+  },
+  {
+    label: 'Transparency',
+    href: '/government/transparency-documents',
+    children: [
+      {
+        label: 'Full Disclosure Policy',
+        href: '/government/transparency-documents/full-disclosure',
+      },
+      {
+        label: 'Transparency Documents',
+        href: '/government/transparency-documents',
+      },
+      {
+        label: 'Annual Budget',
+        href: '/government/transparency-documents/annual-budget',
+      },
+      {
+        label: 'SALN',
+        href: '/government/transparency-documents/saln',
+      },
+      { label: 'Freedom of Information', href: 'https://www.foi.gov.ph' },
+    ],
+  },
+  {
+    label: 'Statistics',
+    href: '/government/reports-and-statistics',
+    children: [
+      {
+        label: 'City Profile',
+        href: '/government/reports-and-statistics/city-profile',
+      },
+      {
+        label: 'DTI CMCI Profile',
+        href: '/government/reports-and-statistics/dti-cmci-profile',
+      },
+      {
+        label: 'Annual Report',
+        href: '/government/reports-and-statistics/annual-report',
+      },
+      {
+        label: 'Infrastracture Projects',
+        href: '/government/reports-and-statistics/infrastracture-projects',
+      },
+      { label: 'Open Data PH', href: 'https://data.gov.ph' },
+    ],
   },
 ];
 

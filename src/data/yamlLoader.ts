@@ -30,6 +30,8 @@ export interface CategoryIndexData {
 // Import the YAML file as raw text
 import servicesYamlContent from './services.yaml?raw';
 import governmentActivitiesYamlContent from './government.yaml?raw';
+import statsYamlContent from './stats.yaml?raw';
+import historyYamlContent from './history.yaml?raw';
 
 // Import all category index files statically
 import healthServicesIndex from '../../content/services/health-services/index.yaml?raw';
@@ -69,6 +71,39 @@ export const serviceCategories: CategoryData = yaml.load(
 export const governmentCategories: CategoryData = yaml.load(
   governmentActivitiesYamlContent
 ) as CategoryData;
+
+export interface StatItem {
+  value: string;
+  label: string;
+  subtext: string;
+  unit?: string;
+}
+
+export interface CityStats {
+  stats: {
+    residents: StatItem;
+    barangays: StatItem;
+    classification: StatItem;
+    land_area: StatItem;
+  };
+  coordinates: {
+    lat: number;
+    lng: number;
+    zoom: number;
+  };
+}
+
+export const cityStats = yaml.load(statsYamlContent) as CityStats;
+
+export const cityHistory = yaml.load(historyYamlContent) as {
+  affiliations: { label: string; period: string }[];
+  timeline: {
+    year: string;
+    title: string;
+    content: string;
+    details?: string;
+  }[];
+};
 
 export interface CategoryIndex {
   title?: string;
