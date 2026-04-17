@@ -14,6 +14,10 @@ interface Category {
 
 export const mainNavigation: NavigationItem[] = [
   {
+    label: 'Home',
+    href: '/',
+  },
+  {
     label: 'Services',
     href: '/services',
     children: (servicesData.categories as Category[]).map(category => ({

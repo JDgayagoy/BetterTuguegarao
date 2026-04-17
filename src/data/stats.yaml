@@ -1,0 +1,26 @@
+# City Statistics Data
+# This data is used in the "At a Glance" section on the home page.
+
+stats:
+  residents:
+    value: "166,334"
+    label: "Residents"
+    subtext: "2020 census population"
+  barangays:
+    value: "49"
+    label: "Barangays"
+    subtext: "Administrative villages"
+  classification:
+    value: "3rd Class City"
+    label: "Classification"
+    subtext: "Income classification"
+  land_area:
+    value: "144.80"
+    label: "Land Area"
+    unit: "km²"
+    subtext: "Total land area"
+
+coordinates:
+  lat: 17.6133
+  lng: 121.7267
+  zoom: 13
