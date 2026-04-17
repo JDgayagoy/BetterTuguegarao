@@ -1,12 +1,29 @@
 {
-  "site_name": "Lapu Lapu City Portal",
-  "site_description": "A community-run portal for the Lapu Lapu City",
+  "site_name": "Tuguegarao City Portal",
+  "site_description": "A community-run portal for the Tuguegarao City",
   "hero": {
-    "title": "Welcome to BetterGov.ph",
-    "subtitle": "A community-run portal to find information of the Lapu Lapu City Government",
-    "nationalId": "National ID",
-    "birthCertificate": "Birth Certificate",
-    "businessRegistration": "Business Registration"
+    "welcome": "WELCOME TO",
+    "name_prefix": "Better",
+    "name_suffix": ".org",
+    "subtitle": "Access government services, information, and resources for the people of {{city}}, {{province}}.",
+    "browse_services": "Browse Services",
+    "contact_us": "Contact Us",
+    "search_placeholder": "e.g., business permit, health services",
+    "search_title": "Find a Service",
+    "popular_services": "POPULAR",
+    "view_all": "View All Services"
+  },
+  "glance": {
+    "title": "{{city}} at a Glance",
+    "view_profile": "View City Profile",
+    "residents": "Residents",
+    "barangays": "Barangays",
+    "classification": "Classification",
+    "land_area": "Land Area",
+    "weather": "Weather",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "coordinates": "Coordinates"
   },
   "services": {
     "title": "Services & Information",
