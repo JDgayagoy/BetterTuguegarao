@@ -1,4 +1,4 @@
-# Join Health Programs — Lapu-Lapu City (Nutrition, Dengue Control, TB Treatment)
+# Join Health Programs — Tuguegarao City (Nutrition, Dengue Control, TB Treatment)
 
 Below are city-led and national programs you can join through your **Barangay Health Center** and the **City Health Office (CHO)**.
 
@@ -6,7 +6,7 @@ Below are city-led and national programs you can join through your **Barangay He
 
 ## 1) Nutrition Programs
 
-**What’s offered**
+**What's offered**
 
 - Supplementary feeding for day-care children.
 - Community nutrition activities such as breastfeeding promotion, growth monitoring, and health education.
@@ -14,7 +14,7 @@ Below are city-led and national programs you can join through your **Barangay He
 
 **Who can join**
 
-- Day-care children and families identified by barangays or CSWD.
+- Day-care children and families identified by barangays or the City Social Welfare and Development Office (CSWDO).
 - Residents may also take part in open city nutrition events.
 
 **How to join**
@@ -28,17 +28,17 @@ Below are city-led and national programs you can join through your **Barangay He
 
 ## 2) Dengue Control Programs
 
-**What’s offered**
+**What's offered**
 
 - Community clean-up drives under the **ABKD (Aksyon Barangay Kontra Dengue)** program.
-- Daily “4 o’clock habit” — searching and destroying mosquito breeding sites.
+- Daily "4 o'clock habit" — searching and destroying mosquito breeding sites at home.
 - Misting, fogging, and entomological surveys led by the CHO.
-- Information campaigns during Dengue Awareness Month and rainy season.
+- Information campaigns during Dengue Awareness Month and the rainy season.
 
 **How to join**
 
-1. Take part in barangay clean-up drives and follow the **4S strategy** (Search & Destroy, Self-protection, Seek early consultation, Support fogging/misting).
-2. Cooperate when CHO teams conduct **misting** or **house-to-house larval checks**.
+1. Take part in barangay clean-up drives and follow the **4S strategy** (Search & Destroy breeding sites, Self-protection, Seek early consultation, Support fogging/misting).
+2. Cooperate when CHO teams conduct **misting** or **house-to-house larval checks** in your area.
 
 **Cost:** Free; no registration needed.
 
@@ -46,14 +46,14 @@ Below are city-led and national programs you can join through your **Barangay He
 
 ## 3) TB Treatment (NTP TB-DOTS)
 
-**What’s offered**
+**What's offered**
 
 - Free consultations, diagnostic tests, and full course of anti-TB medicines under the **National Tuberculosis Program (NTP)**.
 - Supervised treatment through the **Directly Observed Therapy Short-course (DOTS)** approach.
 
 **Where**
 
-- Lapu-Lapu City Health Office (DOTS facility) and affiliated barangay health centers.
+- Tuguegarao City Health Office (DOTS facility) and affiliated barangay health centers.
 
 **How to join**
 
@@ -68,14 +68,26 @@ Below are city-led and national programs you can join through your **Barangay He
 ## Contact & Updates
 
 - **Barangay Health Centers** — First point of contact for nutrition, dengue, and TB programs.
-- **Lapu-Lapu City Health Office (CHO)** — Main office for program schedules and services.
-- **City Information Office** — Posts updates on city-wide campaigns and health events.
+- **Tuguegarao City Health Office (CHO)**
+  - Main Avenue, San Gabriel, Tuguegarao City, Cagayan
+  - Phone: (078) 846-4870 / (078) 846-2197
+  - Email: chotugcity@yahoo.com
+  - [Facebook](https://www.facebook.com/p/City-Health-Office-Tuguegarao-City-100093690306549/)
+- **City Information Office** — Check the [Tuguegarao City Government website](https://tuguegaraocity.gov.ph) for updates on city-wide campaigns and health events.
 
 ---
 
 ### Quick Tips
 
 - Bring a **valid ID** and your **barangay health record** (if you already have one).
-- For TB symptoms (cough for 2 weeks or more, weight loss, night sweats), seek screening immediately.
-- Join community clean-up drives and practice the 4 o’clock habit to prevent dengue.
-- Attend barangay nutrition events and feeding programs for your children’s growth and wellness.
+- For TB symptoms (cough for 2 weeks or more, weight loss, night sweats), seek screening immediately — do not wait.
+- Join community clean-up drives and practice the 4 o'clock habit daily to prevent dengue in your neighborhood.
+- Attend barangay nutrition events and feeding programs for your children's growth and wellness.
+
+---
+
+**References**
+
+- [Tuguegarao City Government](https://tuguegaraocity.gov.ph)
+- [Department of Health – Expanded Program on Immunization](https://doh.gov.ph)
+- [Department of Health – National Tuberculosis Program](https://doh.gov.ph)
