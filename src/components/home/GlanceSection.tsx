@@ -21,7 +21,7 @@ export default function GlanceSection() {
   const { stats, coordinates } = cityStats;
 
   return (
-    <section className="py-12 mb-20 md:py-16 max-w-7xl mx-auto">
+    <section className="py-12 mb-20 md:py-16 px-4 max-w-7xl mx-auto">
       <div className="container mx-auto px-1">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-baseline gap-4 mb-8">
