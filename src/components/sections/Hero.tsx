@@ -31,7 +31,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative bg-primary-800 bg-dot-pattern text-white py-10 md:py-14 overflow-hidden h-auto">
+    <div className="relative bg-gradient-to-r from-primary-900 to-primary-300 text-white py-10 px-10 md:py-14 overflow-hidden h-auto">
       {/* Decorative elements */}
       <div className="container mx-auto px-4 relative md:gap-4 sm:gap-3 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-items-center">

@@ -1,241 +1,157 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import Section from '../components/ui/Section';
-import { useParams, Link } from 'react-router-dom';
-import { Heading } from '../components/ui/Heading';
-import { Text } from '../components/ui/Text';
+import SEO from '../components/SEO';
+import Breadcrumbs from '../components/ui/Breadcrumbs';
 import {
   serviceCategories,
-  getCategorySubcategories,
+  getAllServices,
   type Subcategory,
-  type CategoryIndex,
 } from '../data/yamlLoader';
-import * as LucideIcons from 'lucide-react';
-import Breadcrumbs from '../components/ui/Breadcrumbs';
-import ServicesSection from '../components/home/ServicesSection';
-import SEO from '../components/SEO';
-import { Banner } from '@bettergov/kapwa/banner';
-import { useState, useEffect } from 'react';
-
-const ACCENT_COLORS = [
-  { bar: '#5DCAA5', iconBg: '#E1F5EE', iconColor: '#0F6E56' },
-  { bar: '#D4537E', iconBg: '#FBEAF0', iconColor: '#993556' },
-  { bar: '#378ADD', iconBg: '#E6F1FB', iconColor: '#185FA5' },
-  { bar: '#639922', iconBg: '#EAF3DE', iconColor: '#3B6D11' },
-  { bar: '#BA7517', iconBg: '#FAEEDA', iconColor: '#854F0B' },
-  { bar: '#7F77DD', iconBg: '#EEEDFE', iconColor: '#3C3489' },
-  { bar: '#D85A30', iconBg: '#FAECE7', iconColor: '#993C1D' },
-  { bar: '#888780', iconBg: '#F1EFE8', iconColor: '#444441' },
-];
-
-// Pick a stable accent for this category based on its slug index
-function getCategoryAccent(slug: string) {
-  const categories = serviceCategories.categories;
-  const idx = categories.findIndex(c => c.slug === slug);
-  return ACCENT_COLORS[(idx >= 0 ? idx : 0) % ACCENT_COLORS.length];
-}
+import { ServiceSidebar } from '../components/services/ServiceSidebar';
+import { ServiceFilters } from '../components/services/ServiceFilters';
+import { ServiceCard } from '../components/services/ServiceCard';
 
 const Services: React.FC = () => {
-  const { category } = useParams();
-  const [categoryIndex, setCategoryIndex] = useState<CategoryIndex>({
-    layout: 'list',
-    pages: [],
-  });
-  const [loading, setLoading] = useState(false);
-  const subcategories: Subcategory[] = categoryIndex.pages;
+  const { category: urlCategory } = useParams();
 
-  const categoryData = serviceCategories.categories.find(
-    c => c.slug === category
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    urlCategory || null
   );
-  const accent = category ? getCategoryAccent(category) : ACCENT_COLORS[0];
+  const [allServices, setAllServices] = useState<Subcategory[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const Icon = LucideIcons[
-    categoryData?.icon as keyof typeof LucideIcons
-  ] as React.ComponentType<{ style?: React.CSSProperties }>;
-
+  // Update state when URL changes (deep linking)
   useEffect(() => {
-    if (category && categoryData) {
+    setSelectedCategory(urlCategory || null);
+  }, [urlCategory]);
+
+  // Filter states
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sourceFilter, setSourceFilter] = useState('All');
+  const [typeFilter, setTypeFilter] = useState('All');
+
+  // Load data
+  useEffect(() => {
+    const loadData = async () => {
       setLoading(true);
-      getCategorySubcategories(category)
-        .then(setCategoryIndex)
-        .catch(console.error)
-        .finally(() => setLoading(false));
-    }
-  }, [category, categoryData]);
+      try {
+        const data = await getAllServices();
+        setAllServices(data);
+      } catch (error) {
+        console.error('Failed to load services:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, []);
 
-  // ── All services (no category param) ──────────────────────────────────────
-  if (!category) {
-    return (
-      <>
-        <SEO
-          title="Services"
-          description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
-          keywords="government services, public services, local government, civic services"
-        />
-        <ServicesSection
-          title="All local government services"
-          description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
-        />
-      </>
-    );
-  }
+  // Filter logic
+  const filteredServices = useMemo(() => {
+    return allServices.filter(service => {
+      // Category filter (from local state)
+      if (selectedCategory && service.categorySlug !== selectedCategory)
+        return false;
 
-  // ── Category not found ────────────────────────────────────────────────────
-  if (!categoryData) {
-    return (
-      <Section className="p-3 mb-12">
-        <Breadcrumbs className="mb-8" />
-        <Banner
-          type="error"
-          title="Category not found"
-          description="The category you are looking for does not exist."
-          icon
-        />
-      </Section>
-    );
-  }
+      // Search filter
+      const searchMatch =
+        service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        service.description?.toLowerCase().includes(searchQuery.toLowerCase());
+      if (!searchMatch) return false;
 
-  // ── Category page ─────────────────────────────────────────────────────────
+      // Source filter
+      if (sourceFilter !== 'All' && service.source !== sourceFilter)
+        return false;
+
+      // Type filter
+      if (typeFilter !== 'All' && service.type !== typeFilter) return false;
+
+      return true;
+    });
+  }, [allServices, selectedCategory, searchQuery, sourceFilter, typeFilter]);
+
+  const currentCategoryData = serviceCategories.categories.find(
+    c => c.slug === selectedCategory
+  );
+
   return (
     <>
       <SEO
-        title={categoryData.category || category}
-        description={categoryData.description}
-        keywords={`${categoryData.category}, government services, public services, local government`}
+        title={currentCategoryData?.category || 'Services'}
+        description={`Find and access government services in ${import.meta.env.VITE_GOVERNMENT_NAME}.`}
       />
-      <Section className="p-3 mb-12">
-        <Breadcrumbs className="mb-8" />
 
-        {/* Category header */}
-        <div className="mb-8">
-          <div
-            className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-            style={{ background: accent.iconBg, color: accent.iconColor }}
-          >
-            {Icon && <Icon style={{ width: 20, height: 20 }} />}
-          </div>
+      <Section className="py-8 bg-gray-50/30 min-h-screen">
+        <div className="container mx-auto px-4">
+          <Breadcrumbs className="mb-8" />
 
-          <Heading>{categoryData.category || category}</Heading>
-          <Text className="text-gray-500 mt-1">{categoryData.description}</Text>
-        </div>
-
-        {/* Divider */}
-        <div
-          className="h-[2px] w-12 rounded-full mb-8"
-          style={{ background: accent.bar }}
-        />
-
-        {/* Sub-heading from index */}
-        {categoryIndex.title && (
-          <p className="text-base font-semibold text-gray-800 mb-1">
-            {categoryIndex.title}
-          </p>
-        )}
-        {categoryIndex.description && (
-          <Text className="text-gray-500 mb-6">
-            {categoryIndex.description}
-          </Text>
-        )}
-
-        {/* Loading */}
-        {loading && (
-          <div className="flex justify-center items-center py-16">
-            <div
-              className="w-6 h-6 rounded-full border-2 border-gray-200 animate-spin"
-              style={{ borderTopColor: accent.bar }}
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Sidebar */}
+            <ServiceSidebar
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
             />
-          </div>
-        )}
 
-        {/* Grid layout */}
-        {!loading && categoryIndex.layout === 'grid' && (
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {subcategories.map((subcategory, i) => {
-              const subAccent = ACCENT_COLORS[i % ACCENT_COLORS.length];
-              return (
-                <Link
-                  key={subcategory.slug}
-                  to={`/services/${category}/${subcategory.slug}`}
-                  className="group block rounded-xl border border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm transition-all duration-200 overflow-hidden"
-                >
-                  <div
-                    className="h-[3px] w-full"
-                    style={{ background: subAccent.bar }}
-                  />
-                  <div className="p-5">
-                    <h4 className="text-sm font-semibold text-gray-900 leading-snug mb-1.5">
-                      {subcategory.name}
-                    </h4>
-                    {subcategory.description && (
-                      <p className="text-xs text-gray-500 leading-relaxed mb-4 line-clamp-3">
-                        {subcategory.description}
-                      </p>
-                    )}
-                    <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                      <span
-                        className="text-[11px] font-medium px-2 py-0.5 rounded-full"
-                        style={{
-                          background: subAccent.iconBg,
-                          color: subAccent.iconColor,
-                        }}
-                      >
-                        {categoryData.category}
-                      </span>
-                      <span
-                        className="text-gray-300 group-hover:text-gray-400 transition-colors text-sm"
-                        aria-hidden
-                      >
-                        →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        )}
+            {/* Main Content */}
+            <div className="flex-1">
+              <div className="mb-8">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  {currentCategoryData?.category || 'All Services'}
+                </h1>
+                <p className="text-gray-500 max-w-2xl">
+                  {currentCategoryData?.description ||
+                    'Browse through the complete directory of services provided by the local government unit.'}
+                </p>
+              </div>
 
-        {/* List layout */}
-        {!loading && categoryIndex.layout === 'list' && (
-          <div className="flex flex-col gap-2">
-            {subcategories.map(subcategory => (
-              <Link
-                key={subcategory.slug}
-                to={`/services/${category}/${subcategory.slug}`}
-                className="group flex items-center gap-4 rounded-xl border border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm transition-all duration-200 px-5 py-4 overflow-hidden"
-              >
-                {/* Left accent line */}
-                <div
-                  className="w-[3px] h-8 rounded-full flex-shrink-0"
-                  style={{ background: accent.bar }}
-                />
+              {/* Filters */}
+              <ServiceFilters
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                sourceFilter={sourceFilter}
+                setSourceFilter={setSourceFilter}
+                typeFilter={typeFilter}
+                setTypeFilter={setTypeFilter}
+                resultsCount={filteredServices.length}
+              />
 
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-semibold text-gray-900 leading-snug">
-                    {subcategory.name}
-                  </h4>
-                  {subcategory.description && (
-                    <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
-                      {subcategory.description}
-                    </p>
-                  )}
+              {/* Grid */}
+              {loading ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 animate-pulse">
+                  {[...Array(6)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="bg-white border border-gray-100 rounded-2xl h-64 shadow-sm"
+                    />
+                  ))}
                 </div>
-
-                <span
-                  className="text-[11px] font-medium px-2 py-0.5 rounded-full flex-shrink-0 hidden sm:inline-block"
-                  style={{ background: accent.iconBg, color: accent.iconColor }}
-                >
-                  {categoryData.category}
-                </span>
-
-                <span
-                  className="text-gray-300 group-hover:text-gray-500 group-hover:translate-x-0.5 transition-all text-sm flex-shrink-0"
-                  aria-hidden
-                >
-                  →
-                </span>
-              </Link>
-            ))}
+              ) : filteredServices.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {filteredServices.map(service => (
+                    <ServiceCard
+                      key={`${service.categorySlug}-${service.slug}`}
+                      service={service}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="bg-white border border-gray-100 rounded-2xl p-12 text-center shadow-sm">
+                  <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+                    <LucideIcons.Search size={32} />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    No services found
+                  </h3>
+                  <p className="text-gray-500 max-w-sm mx-auto">
+                    We couldn't find any services matching your current filters.
+                    Try adjusting your search or category.
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
-        )}
+        </div>
       </Section>
     </>
   );

@@ -8,4 +8,28 @@ pages:
     
   - name: 'Report illegal logging, quarrying, or fishing'
     slug: 'report-illegal-logging-quarrying-or-fishing'
+    id: '8.2'
+    source: 'Official'
+    type: 'Simple'
     description: 'How to report illegal environmental activities like logging, quarrying, or illegal fishing.'
+
+  - name: 'Request tree or bamboo seedlings'
+    slug: 'request-tree-or-bamboo-seedlings'
+    id: '8.3'
+    source: 'Official'
+    type: 'Simple'
+    description: 'Avail of forest, fruit tree, and bamboo seedlings for ecosystem restoration and reforestation.'
+
+  - name: 'Environmental Monitoring and Technical Assistance'
+    slug: 'environmental-monitoring-and-technical-assistance'
+    id: '8.4'
+    source: 'Official'
+    type: 'Simple'
+    description: 'Access technical assistance for survey, mapping, site inspection, and environmental monitoring.'
+
+  - name: 'Training on Waste Management (WACS)'
+    slug: 'training-on-waste-management-wacs'
+    id: '8.5'
+    source: 'Official'
+    type: 'Simple'
+    description: 'Technical assistance and training for LGUs on Waste Analysis and Characterization Study (WACS) and air/water quality.'

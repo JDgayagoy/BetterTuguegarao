@@ -1,0 +1,49 @@
+{
+  "isStructuredService": true,
+  "title": "Join clean-up drives and tree planting activities",
+  "categoryName": "Environment",
+  "serviceNo": "SERVICE NO. SERVICE NO. 1.0",
+  "transactionType": "TRANSACTIONAL",
+  "officialData": true,
+  "whoMayAvail": "All residents, businesses, or designated entities as per Local Government Unit guidelines.",
+  "processingTime": "1 to 3 working days depending on completion of requirements.",
+  "whoCanApply": "Residents and eligible applicants.",
+  "classification": "Simple",
+  "dataIntegrity": {
+    "status": "Official Data",
+    "source": "From Citizens Charter document"
+  },
+  "responsibleOffices": [
+    {
+      "name": "City Environment Office",
+      "link": ""
+    }
+  ],
+  "fees": [
+    {
+      "name": "Standard Processing Fee",
+      "amount": "\u20b10.00"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "Valid ID (Government Issued)",
+      "whereToSecure": "Any Government Issuing Agency"
+    },
+    {
+      "name": "Barangay Clearance/Certificate of Indigency (if applicable)",
+      "whereToSecure": "Barangay Hall"
+    },
+    {
+      "name": "Duly accomplished application form",
+      "whereToSecure": "City Environment Office"
+    }
+  ],
+  "steps": [
+    "Submit all required documents to the receiving window.",
+    "Wait for the assessment and verification of your submitted documents.",
+    "Pay any required fees at the Treasurer's Office (if applicable).",
+    "Present the official receipt to the releasing window.",
+    "Receive the requested service/document."
+  ]
+}

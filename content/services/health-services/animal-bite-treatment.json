@@ -1,0 +1,50 @@
+{
+  "isStructuredService": true,
+  "title": "Animal Bite Treatment",
+  "categoryName": "Health Services",
+  "serviceNo": "SERVICE NO. 1.7",
+  "transactionType": "TRANSACTIONAL",
+  "officialData": true,
+  "whoMayAvail": "All residents of Tuguegarao City needing immediate post-exposure prophylaxis for animal bites.",
+  "processingTime": "30 minutes",
+  "whoCanApply": "Bite victims, or their guardians/parents for minors.",
+  "classification": "Simple",
+  "dataIntegrity": {
+    "status": "Official Data",
+    "source": "From Citizens Charter document"
+  },
+  "responsibleOffices": [
+    {
+      "name": "Provincial Animal Bite Treatment Center",
+      "link": ""
+    }
+  ],
+  "fees": [
+    {
+      "name": "Consultation",
+      "amount": "₱0.00"
+    },
+    {
+      "name": "Initial Vaccine Dose",
+      "amount": "₱0.00"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "Proof of Tuguegarao City residency (e.g. valid ID)",
+      "whereToSecure": "Barangay or COMELEC"
+    },
+    {
+      "name": "Patient's medical history (if any)",
+      "whereToSecure": "Personal Records"
+    }
+  ],
+  "steps": [
+    "Wash the bite wound thoroughly with soap and running water for 10-15 minutes.",
+    "Proceed to the Provincial Animal Bite Treatment Center immediately.",
+    "Present proof of residency to the registration desk.",
+    "Undergo assessment by the attending physician/nurse.",
+    "Receive the initial dose of the anti-rabies vaccine.",
+    "Follow the given schedule for subsequent vaccine doses."
+  ]
+}

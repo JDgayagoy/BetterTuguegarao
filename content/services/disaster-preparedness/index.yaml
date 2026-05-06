@@ -13,3 +13,17 @@ pages:
   - name: 'Access disaster preparedness information and early warning systems'
     slug: 'access-disaster-preparedness-information-and-early-warning-systems'
     description: 'How to access disaster preparedness information and early warning systems.'
+
+  - name: 'Capability Building and Conduct of Training'
+    slug: 'capability-building-and-conduct-of-training'
+    id: '9.4'
+    source: 'Official'
+    type: 'Complex'
+    description: 'Provision of technical assistance to conduct capacity building and training programs like Standard First Aid, BLS, and disaster drills.'
+
+  - name: 'Request Information, Education, Communication (IEC) Materials'
+    slug: 'request-iec-materials'
+    id: '9.5'
+    source: 'Official'
+    type: 'Simple'
+    description: 'Access disaster preparedness IEC campaign materials and reports from PDRRMO.'

@@ -23,6 +23,10 @@ import {
   type CategoryIndex,
 } from '../data/yamlLoader';
 import SEO from '../components/SEO';
+import {
+  StructuredServiceLayout,
+  type StructuredServiceData,
+} from '../components/services/StructuredServiceLayout';
 
 interface DocumentProps {
   theme?: string;
@@ -200,6 +204,27 @@ export default function Document({
 
   if (!markdownContent) {
     return null;
+  }
+
+  if (markdownContent.data?.isStructuredService) {
+    return (
+      <>
+        <SEO
+          title={markdownContent.title || documentSlug}
+          description={
+            markdownContent.description ||
+            `Government service information for ${documentSlug}`
+          }
+          keywords={`${documentSlug}, government services, public services, local government`}
+        />
+        <Section className="p-3 mb-12">
+          <Breadcrumbs className="mb-8" items={breadcrumbs} />
+          <StructuredServiceLayout
+            data={markdownContent.data as unknown as StructuredServiceData}
+          />
+        </Section>
+      </>
+    );
   }
 
   return (

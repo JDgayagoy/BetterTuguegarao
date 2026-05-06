@@ -5,6 +5,12 @@ export interface Subcategory {
   name: string;
   slug: string;
   description?: string;
+  id?: string;
+  source?: 'Official' | 'Community';
+  type?: 'Simple' | 'Complex';
+  tags?: string[];
+  categorySlug?: string; // Internal helper for "All Services" view
+  categoryName?: string; // Internal helper for "All Services" view
 }
 
 export interface Category {
@@ -25,6 +31,25 @@ export interface CategoryIndexData {
   description?: string;
   layout?: 'grid' | 'list';
   pages: Subcategory[];
+}
+
+// ... existing code ...
+
+// Function to get all services across all categories
+export async function getAllServices(): Promise<Subcategory[]> {
+  const allServices: Subcategory[] = [];
+
+  for (const cat of serviceCategories.categories) {
+    const index = await getCategorySubcategories(cat.slug);
+    const servicesWithMetadata = index.pages.map(page => ({
+      ...page,
+      categorySlug: cat.slug,
+      categoryName: cat.category,
+    }));
+    allServices.push(...servicesWithMetadata);
+  }
+
+  return allServices;
 }
 
 // Import the YAML file as raw text
